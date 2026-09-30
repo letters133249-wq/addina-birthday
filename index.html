@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Princess Addina 💗</title>
+  <style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, #ffd9eb 0 8%, transparent 9%),
+    radial-gradient(circle at 80% 10%, #ffeaf4 0 10%, transparent 11%),
+    linear-gradient(135deg, #fff0f7, #ffc4dc, #ffe7f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  color: #8f3f68;
+}
+
+.card-wrap {
+  width: min(92%, 430px);
+  padding: 25px 0;
+}
+
+.card {
+  position: relative;
+  padding: 38px 25px;
+  border-radius: 30px;
+  text-align: center;
+  background: rgba(255,255,255,.82);
+  border: 3px solid rgba(255,255,255,.95);
+  box-shadow: 0 20px 55px rgba(184, 70, 125, .22);
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.bow { font-size: 58px; animation: bounce 1.8s infinite; }
+
+.small { margin: 8px 0; font-size: 14px; color: #b96791; }
+h1 { margin: 5px 0; font-size: 34px; color: #e34f91; }
+.subtitle { margin: 8px 0 24px; color: #a64d78; }
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 23px;
+  background: linear-gradient(135deg, #ff72ac, #e9438c);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(228,67,140,.25);
+  transition: transform .2s;
+}
+button:hover { transform: scale(1.05); }
+
+.message {
+  display: none;
+  margin-top: 24px;
+  padding: 22px 18px;
+  border-radius: 22px;
+  background: #fff5fa;
+  line-height: 1.65;
+  font-size: 14px;
+  text-align: left;
+  animation: reveal .8s ease forwards;
+}
+.message.show { display: block; }
+.ending { text-align: center; font-weight: bold; color: #e34f91; }
+.cake { text-align: center; font-size: 48px; margin-top: 8px; }
+
+.sparkle {
+  position: absolute;
+  color: #ff8cba;
+  font-size: 24px;
+  animation: twinkle 1.5s infinite alternate;
+}
+.s1 { top: 20px; left: 22px; }
+.s2 { top: 55px; right: 25px; animation-delay: .5s; }
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: rise linear forwards;
+  z-index: 10;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-8px) rotate(4deg); }
+}
+@keyframes twinkle {
+  from { opacity: .35; transform: scale(.8) rotate(0); }
+  to { opacity: 1; transform: scale(1.2) rotate(15deg); }
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise {
+  to { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
+
+</style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <main class="card-wrap">
+    <section class="card" id="card">
+      <div class="sparkle s1">✦</div>
+      <div class="sparkle s2">✧</div>
+      <div class="bow">🎀</div>
+
+      <p class="small">A little birthday surprise for</p>
+      <h1>Princess Addina 💗</h1>
+      <p class="subtitle">Happy Birthday, my favourite person ✨</p>
+
+      <button id="openBtn">Open Your Surprise 💌</button>
+
+      <div class="message" id="message">
+        <p>Happy birthday to my princess, Addina. 💗</p>
+        <p>
+          I hope today reminds you how special you are.
+          Thank you for all the little things you do, for your random stories,
+          your cute moments, and for being someone who can make me smile even
+          on days when I don't feel okay.
+        </p>
+        <p>
+          I know I'm not perfect and sometimes I make mistakes or overthink
+          things, but one thing I never want you to doubt is how much I care
+          about you. I hope this new chapter brings you lots of happiness,
+          beautiful memories, and reasons to smile.
+        </p>
+        <p>
+          Keep being you, princess. You don't have to be perfect to be loved.
+          I just hope I can keep being beside you, supporting you and cheering
+          for you through all the little things in life. 🎀
+        </p>
+        <p class="ending">Happy Birthday, Princess Addina. I love you. 💗</p>
+        <div class="cake">🎂</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+const openBtn = document.getElementById("openBtn");
+const message = document.getElementById("message");
+
+openBtn.addEventListener("click", () => {
+  message.classList.add("show");
+  openBtn.textContent = "I hope you like it, Princess 💗";
+  openBtn.disabled = true;
+  burstHearts();
+});
+
+function burstHearts() {
+  for (let i = 0; i < 28; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = ["💗","💕","💖","🎀","✨"][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 22) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6500);
+    }, i * 80);
+  }
+}
+
+</script>
+</body>
+</html>
